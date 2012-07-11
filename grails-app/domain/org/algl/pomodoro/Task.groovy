@@ -7,6 +7,7 @@ class Task {
 	Date dateCreated
 	Date deadline
 	Long timeSpent = 0L
+	String status
 
 	static hasMany = [tags: Tag]
 	
@@ -15,5 +16,6 @@ class Task {
 			details blank: false, maxSize: 1000
 			deadline nullable: true
 			timeSpent min: 0L
+			status inList: ["Open", "Done"]
     }
 }
