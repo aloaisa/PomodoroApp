@@ -10,7 +10,7 @@
 		<h1 class="span-24 last">Pomodoro Task Manager</h1>
 		<div class="span-24">
 			<div class="span-16">
-				<h2>Open Task</h2>
+				<h2>Open Task for <sec:ifLoggedIn><sec:username/> (<g:link controller="logout">sign out</g:link>)</sec:ifLoggedIn></h2>
 			</div>
 			<div class="span-4">
 				<ul class="actions"><li>New</li></ul>
