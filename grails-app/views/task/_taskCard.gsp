@@ -1,6 +1,7 @@
 <div class="task">
 	<h4>${ task.summary }</h4>
-	<p>${ task.details }</p>
-	<div class="due">Due: <g:formatDate date="${ task.deadline }" format="dd MM yyyy"/></div>
-	<div class="created">Created: <g:formatDate date="${ task.dateCreated }" format="dd MM yyyy"/></div>
+	<div><pomo:textToParagraphs>${ task.details }</pomo:textToParagraphs></div>
+	<div class="due">Due: <pomo:deadline date="${ task.deadline }"/></div>
+	<div class="created">Created: <pomo:shortDate date="${ task.dateCreated }"/></div>
+	<div>Deadline: <pomo:deadline date="${ new Date() }"></pomo:deadline></div>
 </div>
