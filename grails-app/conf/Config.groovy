@@ -36,7 +36,7 @@ grails.resources.adhoc.patterns = ['/images/*', '/css/*', '/js/*', '/plugins/*']
 
 
 // The default codec used to encode data with ${}
-grails.views.default.codec = "none" // none, html, base64
+grails.views.default.codec = "html" // none, html, base64
 grails.views.gsp.encoding = "UTF-8"
 grails.converters.encoding = "UTF-8"
 // enable Sitemesh preprocessing of GSP pages
@@ -96,3 +96,5 @@ log4j = {
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'org.algl.pomodoro.User'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'org.algl.pomodoro.UserRole'
 grails.plugins.springsecurity.authority.className = 'org.algl.pomodoro.Role'
+grails.plugins.springsecurity.successHandler.defaultTargetUrl = '/task' //Redirección despues del login
+
