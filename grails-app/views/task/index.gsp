@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+	<meta name='layout' content='bootstrap'/>
 	<title>Pomodoro Task Manager</title>
 	<blueprint:resources/>
 	<link href="${resource(dir: 'css', file: 'app.css')}" type="text/css" rel="stylesheet">
