@@ -39,15 +39,22 @@
 					</a>
 					
 					<a class="brand" href="${createLink(uri: '/')}">Pomodoro Task Manager</a>
-
+					<sec:ifLoggedIn>
 					<div class="nav-collapse">
-						<ul class="nav">							
-							<li<%= request.forwardURI == "${createLink(uri: '/')}" ? ' class="active"' : '' %>><a href="${createLink(uri: '/')}">Home</a></li>
+						<ul class="nav">
+							<li <%= request.forwardURI == "${createLink(uri: '/')}" ? ' class="active"' : '' %>><a href="${createLink(uri: '/')}"><i class="icon-home icon-white"></i></a></li>
 							<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-								<li<%= c.logicalPropertyName == controllerName ? ' class="active"' : '' %>><g:link controller="${c.logicalPropertyName}">${c.naturalName}</g:link></li>
+								<li <%= c.logicalPropertyName == controllerName ? ' class="active"' : '' %>><g:link controller="${c.logicalPropertyName}">${c.naturalName}</g:link></li>
 							</g:each>
 						</ul>
+						<ul class="nav pull-right">
+							<li><i class="icon-user icon-white"></i> <sec:username/>
+							</li>
+							<li class="divider-vertical"></li>
+							<li><g:link controller="logout"><i class="icon-remove icon-white"></i> logout</g:link></li>
+						</ul>
 					</div>
+					</sec:ifLoggedIn>
 				</div>
 			</div>
 		</nav>
