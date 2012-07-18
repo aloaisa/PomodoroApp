@@ -3,30 +3,33 @@
 <head>
 	<meta name='layout' content='bootstrap'/>
 	<title>Pomodoro Task Manager</title>
-	<blueprint:resources/>
 	<link href="${resource(dir: 'css', file: 'app.css')}" type="text/css" rel="stylesheet">
 </head>
 <body>
-	<div class="container">
-		<h1 class="span-24 last">Pomodoro Task Manager</h1>
-		<div class="span-24">
-			<div class="span-16">
-				<h2>Open Task for <sec:ifLoggedIn><sec:username/> (<g:link controller="logout">sign out</g:link>)</sec:ifLoggedIn></h2>
+	<div class="row-fluid">
+		<div class="span9">
+
+			<div class="hero-unit">
+				<center>
+					<h1>Pomodoro Task Manager</h1>
+					<h3>Open Task for user <sec:ifLoggedIn><span class="label label-info"><sec:username/></span></sec:ifLoggedIn></h3>
+				</center>
 			</div>
+
 			<sec:access controller='task' action='create'>
-				<div class="span-4">
-					<ul class="actions"><li><g:link controller="task" action="create"><i class="icon-plus"></i>New</g:link></li></ul>
+				<div class="row-fluid">
+					<div class="pull-right">
+						<ul class="actions"><li><g:link controller="task" action="create"><i class="icon-plus"></i>New</g:link></li></ul>
+					</div>
 				</div>
 			</sec:access>
-			<div class="span-4 last"></div>
-		</div>
-		<div>
-			<div class="span-20">
+
+			<div class="row-fluid">
 				<g:render template="taskCard" collection="${ tasks }" var="task"/>
 			</div>
 		</div>
-		<div class="span-4 last">
-			<dl class="sidebar">
+		<div class="span3">
+			<dl class="well sidebar-nav">
 				<dt>Show</dt>
 				<dd>
 					<ul>

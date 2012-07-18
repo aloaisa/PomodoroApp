@@ -75,7 +75,7 @@
 			<hr>
 
 			<footer>
-				<p>&copy; Company 2011</p>
+				<p>&copy; <a href="http://pensamientosdeotromas.com">pensamientosdeotromas.com</a> 2011</p>
 			</footer>
 		</div>
 
