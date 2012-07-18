@@ -6,7 +6,8 @@ import grails.plugins.springsecurity.Secured
 class TaskController {
 	static scaffold = Task
 	
-	def springSecurityService  
+	def springSecurityService
+	def role = "ROLE_USER"
 	
 	def index = {
 		def tasks = Task.findAllByStatus("Open", [sort: "deadline", order: "asc"])
@@ -14,7 +15,7 @@ class TaskController {
 		
 		return [tasks: tasks, tags: tags]
 	}
-	
+
 	private currentUser() {
 		User.get(springSecurityService.principal.id)
 	}

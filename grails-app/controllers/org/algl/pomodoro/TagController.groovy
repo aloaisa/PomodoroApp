@@ -4,5 +4,8 @@ import grails.plugins.springsecurity.Secured
 
 @Secured(["ROLE_ADMIN"])
 class TagController {
+
 	static scaffold = Tag
+
+	def role = "ROLE_ADMIN"
 }

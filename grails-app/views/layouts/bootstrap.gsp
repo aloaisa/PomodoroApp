@@ -42,10 +42,12 @@
 					<sec:ifLoggedIn>
 					<div class="nav-collapse">
 						<ul class="nav">
-							<li <%= request.forwardURI == "${createLink(uri: '/')}" ? ' class="active"' : '' %>><a href="${createLink(uri: '/')}"><i class="icon-home icon-white"></i></a></li>
-							<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-								<li <%= c.logicalPropertyName == controllerName ? ' class="active"' : '' %>><g:link controller="${c.logicalPropertyName}">${c.naturalName}</g:link></li>
-							</g:each>
+							<sec:access controller='task' action='index'>
+								<li <%= controllerName == "task" ? ' class="active"' : '' %>><g:link controller="task"><i class="icon-home icon-white"></i></g:link></li>
+							</sec:access>
+							<sec:access controller='tag' action='index'>
+								<li <%= controllerName == "tag" ? ' class="active"' : '' %>><g:link controller="tag">Tags</g:link></li>
+							</sec:access>
 						</ul>
 						<ul class="nav pull-right">
 							<li><i class="icon-user icon-white"></i> <sec:username/>
