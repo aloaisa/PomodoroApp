@@ -48,10 +48,15 @@
 							<sec:access controller='tag' action='index'>
 								<li <%= controllerName == "tag" ? ' class="active"' : '' %>><g:link controller="tag">Tags</g:link></li>
 							</sec:access>
+							<sec:access controller='user' action='index'>
+								<li <%= controllerName == "user" ? ' class="active"' : '' %>><g:link controller="user">Users</g:link></li>
+							</sec:access>
+							<sec:access controller='role' action='index'>
+								<li <%= controllerName == "role" ? ' class="active"' : '' %>><g:link controller="role">Roles</g:link></li>
+							</sec:access>
 						</ul>
 						<ul class="nav pull-right">
-							<li><i class="icon-user icon-white"></i> <sec:username/>
-							</li>
+							<li><g:link controller="user" action="show" id="${sec.loggedInUserInfo(field: "id")}" ><i class="icon-user icon-white"></i> <sec:username/></g:link></li>
 							<li class="divider-vertical"></li>
 							<li><g:link controller="logout"><i class="icon-remove icon-white"></i> logout</g:link></li>
 						</ul>
