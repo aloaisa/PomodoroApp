@@ -7,13 +7,16 @@ class TaskController {
 	static scaffold = Task
 	
 	def springSecurityService
-	def role = "ROLE_USER"
 	
 	def index = {
 		def tasks = Task.findAllByStatus("Open", [sort: "deadline", order: "asc"])
 		def tags = Tag.list(sort: "name", order: "asc")
 		
 		return [tasks: tasks, tags: tags]
+	}
+
+	def list = {
+		redirect action: 'index', params: params
 	}
 
 	private currentUser() {

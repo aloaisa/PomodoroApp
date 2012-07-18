@@ -13,9 +13,11 @@
 			<div class="span-16">
 				<h2>Open Task for <sec:ifLoggedIn><sec:username/> (<g:link controller="logout">sign out</g:link>)</sec:ifLoggedIn></h2>
 			</div>
-			<div class="span-4">
-				<ul class="actions"><li>New</li></ul>
-			</div>
+			<sec:access controller='task' action='create'>
+				<div class="span-4">
+					<ul class="actions"><li><g:link controller="task" action="create"><i class="icon-plus"></i>New</g:link></li></ul>
+				</div>
+			</sec:access>
 			<div class="span-4 last"></div>
 		</div>
 		<div>
