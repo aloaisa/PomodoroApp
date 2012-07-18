@@ -43,7 +43,10 @@
 					<div class="nav-collapse">
 						<ul class="nav">
 							<sec:access controller='task' action='index'>
-								<li <%= controllerName == "task" ? ' class="active"' : '' %>><g:link controller="task"><i class="icon-home icon-white"></i></g:link></li>
+								<li <%= ((controllerName == "task") && (actionName == "index")) ? ' class="active"' : '' %>><g:link controller="task"><i class="icon-home icon-white"></i></g:link></li>
+							</sec:access>
+							<sec:access controller='task' action='list'>
+								<li <%= ((controllerName == "task") && (actionName in ["list", "create", "show", "edit"])) ? ' class="active"' : '' %>><g:link controller="task" action="list">All Tasks</g:link></li>
 							</sec:access>
 							<sec:access controller='tag' action='index'>
 								<li <%= controllerName == "tag" ? ' class="active"' : '' %>><g:link controller="tag">Tags</g:link></li>
