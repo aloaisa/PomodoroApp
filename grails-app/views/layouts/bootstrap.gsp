@@ -59,7 +59,7 @@
 							</sec:access>
 						</ul>
 						<ul class="nav pull-right">
-							<li><g:link controller="user" action="show" id="${sec.loggedInUserInfo(field: "id")}" ><i class="icon-user icon-white"></i> <sec:username/></g:link></li>
+							<li><g:link controller="user" action="adminOwnUser"><i class="icon-user icon-white"></i> <sec:username/></g:link></li>
 							<li class="divider-vertical"></li>
 							<li><g:link controller="logout"><i class="icon-remove icon-white"></i> logout</g:link></li>
 						</ul>
