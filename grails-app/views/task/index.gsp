@@ -19,7 +19,7 @@
 			<sec:access controller='task' action='create'>
 				<div class="row-fluid">
 					<div class="pull-right">
-						<ul class="actions"><li><g:link controller="task" action="create"><i class="icon-plus"></i>New</g:link></li></ul>
+						<ul class="actions"><li><g:link class="btn btn-primary" controller="task" action="create"><i class="icon-plus"></i> New Task</g:link></li></ul>
 					</div>
 				</div>
 			</sec:access>
@@ -30,19 +30,26 @@
 		</div>
 		<div class="span3">
 			<dl class="well sidebar-nav">
-				<dt>Show</dt>
-				<dd>
-					<ul>
-						<g:each in="${ tasks }" var="task">
-							<li>${ task.summary }</li>
-						</g:each>
-					</ul>
-				</dd>
+				<sec:access controller='task' action='show'>
+					<dt>Tasks</dt>
+					<dd>
+						<ul>
+							<g:each in="${ tasks }" var="task">
+								<g:link controller="task" action="show" id="${ task.id }"><i class="icon-ok"></i> ${ task.summary }</g:link><br/>
+							</g:each>
+						</ul>
+					</dd>
+				</sec:access>
 				<dt>Tags</dt>
 				<dd>
 					<ul>
 					<g:each in="${ tags }" var="tag">
-						<li>${ tag.name }</li>
+						<sec:access controller='tag' action='edit'>
+							<g:link controller="tag" action="show" id="${ tag.id }"><i class="icon-ok"></i> ${ tag.name }</g:link><br/>
+						</sec:access>
+						<sec:noAccess controller='tag' action='edit'>
+							<i class="icon-ok"></i> ${ tag.name }<br/>
+						</sec:noAccess>
 					</g:each>
 					</ul>
 				</dd>
