@@ -20,6 +20,12 @@ ul.actions {
 	right: 1.5em;
 }
 
+.task .tags {
+	position: absolute;
+	top: 1.0em;
+	right: 1.5em;
+}
+
 .due .past {
 	color: #D00;
 }
